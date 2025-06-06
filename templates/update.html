@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %} Update {% endblock title %} 
+{% block  body %}
+
+
+            <!-- Todo Form -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>Update Task</span>
+                        <i class="fas fa-plus-circle text-primary"></i>
+                    </div>
+                    <div class="card-body">
+                        <form action="/update/{{allTodo.sno}}" method="POST">
+                            <div class="mb-3">
+                                <label for="taskTitle" class="form-label">Update Task Title</label>
+                                <input type="text" class="form-control" id="taskTitle" name="title" value={{allTodo.title}} placeholder="Enter task title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="taskDescription" class="form-label">Description</label>
+                                <textarea class="form-control" name="desc" id="taskDescription" rows="3"  placeholder="Enter task description">{{allTodo.desc}}</textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="dueDate" class="form-label">Due Date</label>
+                                    <input type="date" class="form-control" id="dueDate">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="taskPriority" class="form-label">Priority</label>
+                                    <select class="form-select" id="taskPriority">
+                                        <option value="low">Low</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-plus me-2"></i> Add Task
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+    
+    {% endblock body %}
